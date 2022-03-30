@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 ruby File.read(".ruby-version").strip
 
 # Core
-gem "rails", "7.0.0"
+gem "rails", "~> 7.0.2"
 gem "puma"
 
 # Database
@@ -41,25 +43,44 @@ gem "autoprefixer-rails"
 gem "turbo-rails"
 gem "serviceworker-rails"
 
+# Specific to the project (not from the template)
+gem "closure_tree"
+gem "devise"
+gem "amazing_print" # awesome_print has bugs with some Rails classes
+gem "table_print"
+gem "money-rails", "~> 1.13.3"
+gem "iban-tools"
+gem "montrose"
+gem "avo"
+gem "ransack"
 
 group :development, :test do
+  gem "debug"
   gem "rspec-rails"
+  gem "pry-rails"
+  gem "pry-doc"
+  gem "pry-byebug"
   gem "standard"
+  gem "rubocop-rails"
+  gem "rubocop-performance"
+  gem "rubocop-rspec"
+  gem "i18n-tasks"
+  gem "annotate"
+  gem "chusaku", require: false
+end
+
+group :test do
   gem "capybara"
   gem "cuprite"
-  gem "i18n-tasks", "0.9.35"
   gem "rack_session_access"
 end
 
 group :development do
   gem "listen"
   gem "web-console"
-  gem "annotate"
   gem "rb-fsevent"
   gem "letter_opener"
-  gem "debug"
-  gem "pry-rails"
   gem "guard"
   gem "guard-rspec"
-  gem "solargraph-standardrb"
+  gem "solargraph"
 end
